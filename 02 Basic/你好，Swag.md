@@ -10,17 +10,17 @@ abi HelloModular {
     // “注释”存储表示函数的不纯操作
     // 在这种情况下，greet() 函数仅具有读取功能。
     // 注意：存储只能在合约类型程序中找到
-    
+
     #[storage(read)]
     fn my_lucky_number() -> u64;
 }
 
-// Storage contains all of the state available in the contract 
+// 存储包含合约中可用的所有状态
 storage {
     lucky_number: u64 = 777,
 }
 
-// The actual implementation of ABI for the contract
+// 合约的ABI实际实现
 impl HelloModular for Contract {
     #[storage(read)]
     fn my_lucky_number() -> u64 {
